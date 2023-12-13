@@ -1,25 +1,100 @@
 .header {
-    /* Estilos del encabezado */
-  }
-  
-  .navigation {
-    /* Estilos de navegación */
-  }
-  
-  .currency-selector, .user-account {
-    position: relative;
-    /* Más estilos */
-  }
-  
-  .currency-options, .user-options {
-    display: none;
-    position: absolute;
-    /* Estilos para menús desplegables */
-  }
-  
-  .currency-selector:hover .currency-options,
-  .user-account:hover .user-options {
-    display: block;
-    /* Ajustes de estilos para cuando se muestra el menú */
-  }
-  
+  background-color: #003366; /* Azul Oscuro Profundo */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #FFD700; /* Amarillo Brillante */
+}
+
+.header .navigation a {
+  text-decoration: none;
+  color: #CCCCCC; /* Gris Claro */
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.header .navigation a:hover {
+  background-color: #008000; /* Verde Esmeralda */
+}
+
+.header .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.currency-selector {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #CCCCCC; /* Gris Claro */
+  border-radius: 4px;
+  margin-right: 40px;
+}
+
+.currency-options {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+  color: #FFD700;
+}
+
+.currency-selector:hover .currency-options {
+  display: block;
+}
+
+.currency-option {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.currency-option:hover {
+  background-color: #008000; /* Verde Esmeralda */
+}
+
+
+.user-account {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #CCCCCC;
+}
+
+.user-options {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  top: 100%;
+  right: 0;
+  width: 150px; /* O el ancho que prefieras */
+}
+
+.user-account:hover .user-options {
+  display: block;
+}
+
+.user-option {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.user-option:hover {
+  background-color: #008000;
+}
+
+.user-option:last-child {
+  border-bottom: none;
+}

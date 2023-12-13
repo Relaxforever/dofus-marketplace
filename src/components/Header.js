@@ -4,8 +4,8 @@ import './Header.css'; // Asegúrate de crear este archivo CSS para estilizar
 
 function Header() {
   // Estados para manejar la visibilidad de los menús desplegables
-  const [currencyHover, setCurrencyHover] = useState(false);
-  const [userHover, setUserHover] = useState(false);
+  const [showUserOptions, setShowUserOptions] = useState(false);
+  const [currency, setCurrency] = useState('EUR');
   const loggedIn = false; // Cambia esto según el estado de inicio de sesión del usuario
 
   return (
@@ -19,40 +19,34 @@ function Header() {
         <Link to="/support">SOPORTE VITAL</Link>
       </nav>
       <div className="header-right">
-        <div className="currency-selector"
-             onMouseEnter={() => setCurrencyHover(true)}
-             onMouseLeave={() => setCurrencyHover(false)}>
-          € EURO
-          {currencyHover && (
-            <div className="currency-options">
-              {/* Reemplaza con componentes o elementos reales según sea necesario */}
-              <div>USD</div>
-              <div>GBP</div>
-              <div>COP</div>
-            </div>
-          )}
+      <div className="currency-selector">
+        {currency}
+        <div className="currency-options">
+          <div className="currency-option" onClick={() => setCurrency('EUR')}>EUR</div>
+          <div className="currency-option" onClick={() => setCurrency('USD')}>USD</div>
+          <div className="currency-option" onClick={() => setCurrency('GBP')}>GBP</div>
+          <div className="currency-option" onClick={() => setCurrency('COP')}>COP</div>
         </div>
-        <div className="user-account"
-             onMouseEnter={() => setUserHover(true)}
-             onMouseLeave={() => setUserHover(false)}>
-          {/* Icono de cuenta de usuario */}
-          {userHover && (
-            <div className="user-options">
-              {loggedIn ? (
-                <>
-                  <Link to="/edit-account">Editar Cuenta</Link>
-                  <Link to="/order-history">Historial de Pedidos</Link>
-                  <Link to="/logout">Cerrar Sesión</Link>
-                </>
-              ) : (
-                <>
-                  <Link to="/register">Registrarse</Link>
-                  <Link to="/login">Conectarse</Link>
-                </>
-              )}
-            </div>
-          )}
-        </div>
+      </div>
+      <div className="user-account" onMouseEnter={() => setShowUserOptions(true)} onMouseLeave={() => setShowUserOptions(false)}>
+        {loggedIn ? 'Cuenta' : 'Iniciar Sesión'}
+        {showUserOptions && (
+          <div className="user-options">
+            {loggedIn ? (
+              <>
+                <div className="user-option">Perfil</div>
+                <div className="user-option">Pedidos</div>
+                <div className="user-option">Cerrar Sesión</div>
+              </>
+            ) : (
+              <>
+                <div className="user-option" onClick={() => {/* lógica para ir al formulario de inicio de sesión */}}>Iniciar Sesión</div>
+                <div className="user-option" onClick={() => {/* lógica para ir al formulario de registro */}}>Registrar</div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
         {/* El carrito de compras se ignora por ahora */}
       </div>
     </header>
