@@ -1,0 +1,25 @@
+.header {
+    /* Estilos del encabezado */
+  }
+  
+  .navigation {
+    /* Estilos de navegación */
+  }
+  
+  .currency-selector, .user-account {
+    position: relative;
+    /* Más estilos */
+  }
+  
+  .currency-options, .user-options {
+    display: none;
+    position: absolute;
+    /* Estilos para menús desplegables */
+  }
+  
+  .currency-selector:hover .currency-options,
+  .user-account:hover .user-options {
+    display: block;
+    /* Ajustes de estilos para cuando se muestra el menú */
+  }
+  

@@ -1,0 +1,32 @@
+.home-container {
+    /* Estilos para el contenedor principal */
+  }
+  
+  .home-banner {
+    /* Estilos para el banner o imagen de fondo */
+  }
+  
+  .game-selection-container {
+    display: flex;
+    justify-content: space-around;
+    /* Otros estilos para alinear los contenedores de juegos */
+  }
+  
+  .game-option {
+    cursor: pointer;
+    /* Estilos para hacer que los contenedores sean atractivos y clicables */
+    /* Agregar estilos para hover, focus, etc. */
+  }
+  
+  .game-option.dofus {
+    /* Estilos específicos para el contenedor Dofus */
+  }
+  
+  .game-option.dofus-touch {
+    /* Estilos específicos para el contenedor Dofus Touch */
+  }
+  
+  .home-info {
+    /* Estilos para la sección de información adicional */
+  }
+  

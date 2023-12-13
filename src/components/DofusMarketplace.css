@@ -1,0 +1,51 @@
+/* Estilos básicos, debes ajustarlos según tus necesidades */
+
+.marketplace-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .marketplace-form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .marketplace-form-container form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #48c774;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #36ab68;
+  }
+  
+  .total-price {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  /* Agrega estilos para .marketplace-info según los íconos y descripciones que quieras mostrar */
+  
