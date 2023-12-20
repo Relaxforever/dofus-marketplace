@@ -1,0 +1,55 @@
+.trust-section-cont {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    .trust-section-title {
+        padding-top: 5px;
+    h2 {
+        color: #002E5E;
+    }   
+
+}
+}
+.trust-span {
+    
+    font-weight: bold;
+}
+
+
+
+.trust-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    /* Or another color from your palette */
+  }
+  
+  .trust-item {
+    text-align: center;
+    padding: 10px;
+    max-width: 200px; /* Adjust as necessary */
+  }
+  
+  .trust-icon {
+    /* Placeholder styles for the icon */
+    margin: 0 auto;
+    display: block;
+    width: 50px; /* Adjust as necessary */
+    height: 50px; /* Adjust as necessary */
+    background-color: #CCCCCC; /* Replace with actual icon */
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .trust-item h3 {
+    color: #002E5E; /* Deep Dark Blue */
+    margin-bottom: 5px;
+  }
+  
+  .trust-item p {
+    color: #008000; /* Emerald Green */
+    font-weight: bold;
+  }
+  

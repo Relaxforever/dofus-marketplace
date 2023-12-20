@@ -12,9 +12,14 @@
   font-weight: bold;
   color: #FFD700; /* Amarillo Brillante */
 }
+.game-header {
+  width: 100px;
+  height: 100%;
+}
 
 .header .navigation a {
   text-decoration: none;
+  font-weight: bold;
   color: #CCCCCC; /* Gris Claro */
   padding: 10px 15px;
   transition: background-color 0.3s ease;

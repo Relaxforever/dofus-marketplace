@@ -1,67 +1,120 @@
-import React, { useState } from 'react';
-import './PaymentForm.css'; // Asegúrate de crear y completar este archivo CSS para estilizar
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import './PaymentForm.css'; // Make sure your CSS file is named PaymentForm.css
+import AnutrofMale from '../images/AnutrofMale.png';
+import AnutrofMaleToque from '../images/AnutrofMaleToque.png';
 
-function PaymentForm({ cartItems, onUpdateCart, onConfirmOrder }) {
-  const [billingInfo, setBillingInfo] = useState({
-    firstName: '',
-    lastName: '',
-    address: '',
-    city: '',
-    postalCode: '',
-    country: 'France',
-    department: 'Paris'
+// Mock data for the servers
+const servers = [
+  'Draconiros', 'infiernomina', 'Imagiro', 'Sombra', 'Orukam', 'talkasha',
+  'tyleria', 'boune', 'Crail', 'Eratz', 'galgarion'
+];
+
+function PaymentForm({ onConfirmOrder }) {
+  const [orderDetails, setOrderDetails] = useState({
+    server: servers[0], // Default to the first server in the list
+    characterName: '',
+    amount: '',
+    totalCost: ''
   });
+  let { gameType } = useParams();
+  const [gameData, setGameData] = useState(null);
+  const [characterImage, setCharacterImage] = useState(null);
 
-  // Asumiendo que tenemos una función para actualizar los artículos en el carrito
-  const handleUpdateCart = (productId, action) => {
-    onUpdateCart(productId, action);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(gameType)
+      if (gameType === 'dofus') {
+        setCharacterImage(AnutrofMale); 
+      } else if (gameType === 'dofus-touch') {
+        setCharacterImage(AnutrofMaleToque);
+      }
+    };
+
+    fetchData();
+  }, [gameType]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setOrderDetails(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
-  // Asumiendo que tenemos una función para confirmar la orden
-  const handleConfirmOrder = () => {
-    onConfirmOrder(billingInfo);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onConfirmOrder(orderDetails);
   };
 
   return (
-    <div className="payment-form-container">
-      <form onSubmit={e => e.preventDefault()}>
-        <div className="billing-info">
-          {/* Campos de información de facturación */}
-          <label>Nombre de pila:</label>
-          <input
-            type="text"
-            name="firstName"
-            value={billingInfo.firstName}
-            onChange={(e) => setBillingInfo({ ...billingInfo, firstName: e.target.value })}
-            required
-          />
-          {/* ... otros campos ... */}
-        </div>
-        <div className="payment-methods">
-          <h3>FORMA DE PAGO</h3>
-          {/* Componentes o botones para seleccionar el método de pago */}
-          {/* ... */}
-        </div>
-        <div className="order-summary">
-          <h3>CESTA</h3>
-          {/* Listar artículos del carrito */}
-          {cartItems.map(item => (
-            <div key={item.productId}>
-              <span>{item.name}</span>
-              <span>{item.quantity}</span>
-              <span>{item.price}</span>
-              <button onClick={() => handleUpdateCart(item.productId, 'remove')}>X</button>
-            </div>
-          ))}
-          <div className="total-price">
-            Total: {/* Calcular el total aquí */}
+    <div className="payment-page-container">
+      <aside className="sidebar">
+        <h2></h2>
+        <div className="sidebar-content">
+          <img src={gameType === 'dofus' ? AnutrofMale : AnutrofMaleToque} alt="Anutrof Character" className="character-image" />
+          {/* Sidebar content such as tips and warnings will go here. Adjust as per your content */}
+          <div className="tips">
+            <p>TRUCO: Puede ingresar la Cantidad o la Cantidad como tu deseas</p>
+            <p>BONO VIP: Hasta 5% bono para clientes registrados</p>
+            <p>INTERCAMBIO DE KAMAS: ¿Quieres intercambiar kamas en diferentes servidores o juegos? Póngase en contacto con soporte en vivo para intercambiar tus kamas</p>
+            <p>ATENCIÓN: No confíes en nadie que te pida que devuelvas kamas en el juego. Bloquea si alguien te pide que devuelvas tus kamas.</p>
           </div>
         </div>
-        <button type="button" className="confirm-order-button" onClick={handleConfirmOrder}>CONFIRMAR PEDIDO</button>
+      </aside>
+      <div className="payment-form-container">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="server">Servidor *</label>
+          <select id="server" name="server" value={orderDetails.server} onChange={handleInputChange} required>
+            {servers.map(server => (
+              <option key={server} value={server}>{server}</option>
+            ))}
+          </select>
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="characterName">Nombre del personaje *</label>
+          <input
+            id="characterName"
+            type="text"
+            name="characterName"
+            value={orderDetails.characterName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="amount">Cantidad (millones) *</label>
+          <input
+            id="amount"
+            type="number"
+            name="amount"
+            value={orderDetails.amount}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="totalCost">Cantidad *</label>
+          <input
+            id="totalCost"
+            type="text"
+            name="totalCost"
+            value={orderDetails.totalCost}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        
+        <button type="submit" className="submit-button">COMPRAR</button>
       </form>
+    </div>
     </div>
   );
 }
 
 export default PaymentForm;
-

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import HeaderPagina from '../images/HeaderPagina.png';
 import './Header.css'; // Asegúrate de crear este archivo CSS para estilizar
 
 function Header() {
@@ -11,7 +12,9 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">Kamaspascher</Link>
+        <Link to="/">
+          <img src={HeaderPagina} alt="HeaderPagina" className="game-header" />
+        </Link>
       </div>
       <nav className="navigation">
         <Link to="/dofus-kamas">DOFUS KAMAS</Link>

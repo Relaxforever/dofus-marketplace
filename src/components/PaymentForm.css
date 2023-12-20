@@ -1,62 +1,68 @@
+.payment-page-container {
+  margin-bottom: 30px;
+}
+.sidebar {
+  background-color: #f7f7f7;
+  margin: auto;
+  width: 80%;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+
 .payment-form-container {
-    background: #f7f7f7;
-    border-radius: 6px;
-    padding: 20px;
-    width: 80%;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7; /* Based on the image */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+  width: 80%; /* Or whatever width you prefer */
+  margin: auto; /* Center the form in the middle of the page */
+  font-family: 'Arial', sans-serif; /* The font seems to be a standard sans-serif */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #333; /* Dark grey color for the text */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box; /* To make sure padding doesn't increase the width */
+}
+
+.submit-button {
+  background-color: #4CAF50; /* Green background for the button */
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block; /* Make the button block to occupy the full width */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin-top: 10px; /* A little space from the last input field */
+  text-transform: uppercase; /* Uppercase text for the button */
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Slightly darker green for hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .payment-form-container {
+    width: 95%;
+    padding: 10px;
   }
-  
-  .billing-info, .payment-methods, .order-summary {
-    background: #fff;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .billing-info label, .order-summary label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .billing-info input, .order-summary input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .payment-methods {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .payment-methods img {
-    cursor: pointer;
-    width: 50px; /* Ajusta el tamaño según tu diseño */
-    margin: 5px;
-  }
-  
-  .confirm-order-button {
-    display: block;
-    width: 100%;
-    padding: 10px 0;
-    background-color: #48c774;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .confirm-order-button:hover {
-    background-color: #3a9d5d;
-  }
-  
-  /* Ajusta los estilos para que coincidan con la apariencia exacta deseada */
-  
+}

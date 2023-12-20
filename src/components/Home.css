@@ -1,32 +1,63 @@
 .home-container {
-    /* Estilos para el contenedor principal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.game-selection-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre los dos contenedores de juegos */
+}
+
+.game-option {
+  width: 50%;
+  height: 267px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: white; /* Fondo para el área clicable */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Esto asegurará que la imagen no desborde el radio del borde */
+  transition: background-color 0.3s ease;
+}
+.game-option:hover {
+  background-color: #FFD700; /* Amarillo Brillante for a bold effect */
+  /* Or use background-color: #008000; for a Verde Esmeralda subtle effect */
+}
+
+.game-image { 
+  margin: 20px;
+  width: 280px; /* Ajusta el tamaño según sea necesario */
+  height: 237px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Asegura que la imagen cubra adecuadamente el área */
+}
+
+.game-info {
+  padding: 15px;
+  background-color: #002E5E; /* Azul Oscuro Profundo de la paleta */
+  word-spacing: 0px;
+  height: 100%;
+  h2 {
+    color: #FFD700; /* Amarillo Brillante de la paleta */
+    font-size: 20px;
+    line-height: 20px;
   }
-  
-  .home-banner {
-    /* Estilos para el banner o imagen de fondo */
+  h3 {
+    color: #FFD700; /* Amarillo Brillante de la paleta */
+    font-size: 14px;
   }
+  p {
+    color: white;
+    font-size: 14px;}
   
-  .game-selection-container {
-    display: flex;
-    justify-content: space-around;
-    /* Otros estilos para alinear los contenedores de juegos */
-  }
-  
-  .game-option {
-    cursor: pointer;
-    /* Estilos para hacer que los contenedores sean atractivos y clicables */
-    /* Agregar estilos para hover, focus, etc. */
-  }
-  
-  .game-option.dofus {
-    /* Estilos específicos para el contenedor Dofus */
-  }
-  
-  .game-option.dofus-touch {
-    /* Estilos específicos para el contenedor Dofus Touch */
-  }
-  
-  .home-info {
-    /* Estilos para la sección de información adicional */
-  }
-  
+  flex-grow: 1;
+}
+.home-info {
+  max-width: 1300px;
+}
+/* Añade estilos adicionales para los títulos, párrafos y cualquier otro elemento dentro de .game-info */
+/* Asegúrate de ajustar los tamaños, márgenes y cualquier otro estilo para alinear con tu diseño exacto */
